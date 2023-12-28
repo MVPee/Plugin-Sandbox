@@ -1,0 +1,15 @@
+name: Sandbox
+version: '${project.version}'
+main: be.mvpee.Main
+api-version: '1.20'
+load: STARTUP
+authors: [mvpee]
+website: www.mvpee.be
+commands:
+  contact:
+    description: "How to contact me."
+  ?:
+  help:
+    description: "Display all commands."
+  tools:
+    description: "Tools menu for everyone."
