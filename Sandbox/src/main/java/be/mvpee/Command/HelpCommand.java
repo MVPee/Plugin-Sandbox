@@ -12,16 +12,21 @@ public class HelpCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (sender instanceof Player) {
             Player player = (Player) sender;
+
             player.sendMessage(
-                    "" +
-                    ChatColor.RED + ChatColor.BOLD +    "MVPee Help\n\n" +
-                    ChatColor.GOLD + ChatColor.BOLD +   "Help Menu\n" +
-                    ChatColor.GRAY +                    "   usage: /help\n" +
-                    ChatColor.DARK_GRAY +               "   This beautiful menu.\n\n" +
-                    ChatColor.GOLD + ChatColor.BOLD +   "Tools Menu\n" +
-                    ChatColor.GRAY +                    "   usage: /tools\n" +
-                    ChatColor.DARK_GRAY +               "   Tools menu for everyone.\n\n"
+                    " \n" +
+                    ChatColor.RED + ChatColor.BOLD +    "MVPee Help\n" +
+                    " \n"
             );
+            for (CustomCommand command : CustomCommand.values()) {
+                player.sendMessage(
+                    ChatColor.GOLD.toString() + ChatColor.BOLD + command.getTitle() + " \n" +
+                    ChatColor.GRAY + "   " + command.getUsage() + " \n" +
+                    ChatColor.DARK_GRAY + "   " + command.getDescription() + " \n"
+                );
+            player.sendMessage(" \n");
+
+            }
         }
         return false;
     }

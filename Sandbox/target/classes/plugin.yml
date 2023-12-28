@@ -7,8 +7,9 @@ authors: [mvpee]
 website: www.mvpee.be
 commands:
   contact:
-    description: "How to contact me"
+    description: "How to contact me."
   ?:
   help:
-    description: "Display all commands"
+    description: "Display all commands."
   tools:
+    description: "Tools menu for everyone."

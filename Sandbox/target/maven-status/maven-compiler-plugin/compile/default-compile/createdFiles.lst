@@ -1,5 +1,6 @@
 be\mvpee\Listener\HungerListener.class
 be\mvpee\Listener\DamageListener.class
+be\mvpee\Command\CustomCommand.class
 be\mvpee\Command\HelpCommand.class
 be\mvpee\ToolsMenu\ToolsMenuListener.class
 be\mvpee\ToolsMenu\Tools.class
