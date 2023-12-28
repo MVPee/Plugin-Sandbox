@@ -7,7 +7,6 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
-
 public class ChatListener implements Listener {
 
     @EventHandler
@@ -22,7 +21,7 @@ public class ChatListener implements Listener {
             formattedMessage = ChatColor.GOLD.toString() + ChatColor.BOLD + player.getName() + ": " + ChatColor.WHITE + originalMessage;
 
         for (Player target : Bukkit.getOnlinePlayers()) {
-            target.sendMessage(formattedMessage); // Envoyer le message formaté aux autres joueurs
+            target.sendMessage(formattedMessage);
         }
     }
 }
