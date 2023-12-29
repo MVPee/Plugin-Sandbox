@@ -1,7 +1,8 @@
-package be.mvpee.ToolsMenu;
+package be.mvpee.menu.tools;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -12,17 +13,17 @@ public enum Tools {
     CREATIVE(
             Material.FEATHER,
             ChatColor.DARK_RED.toString() + ChatColor.BOLD + "Creative",
-            new String[]{"", ChatColor.GRAY + "Put the player in creative."}
+            new String[]{"", ChatColor.GRAY + "Put the player in creative.", "", ChatColor.GREEN + "► Click to activate", ""}
     ),
     SURVIVAL(
             Material.CHAINMAIL_BOOTS,
             ChatColor.DARK_GREEN.toString() + ChatColor.BOLD + "Survival",
-            new String[]{"", ChatColor.GRAY + "Put the player in survival."}
+            new String[]{"", ChatColor.GRAY + "Put the player in survival.", "", ChatColor.GREEN + "► Click to activate", ""}
     ),
     ADVENTURE(
             Material.BOOK,
-            ChatColor.DARK_GREEN.toString() + ChatColor.BOLD + "Adventure",
-            new String[]{"", ChatColor.GRAY + "Put the player in adventure."}
+            ChatColor.YELLOW.toString() + ChatColor.BOLD + "Adventure",
+            new String[]{"", ChatColor.GRAY + "Put the player in adventure.", "", ChatColor.GREEN + "► Click to activate", ""}
     ),
     CLOSE(
             Material.BARRIER,
@@ -45,8 +46,8 @@ public enum Tools {
         ItemMeta itemMeta = item.getItemMeta();
         itemMeta.setDisplayName(displayName);
         itemMeta.setLore(Arrays.asList(lore));
+        itemMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
         item.setItemMeta(itemMeta);
         return item;
-
     }
 }

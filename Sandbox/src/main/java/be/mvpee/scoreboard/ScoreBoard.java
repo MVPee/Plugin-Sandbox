@@ -1,4 +1,4 @@
-package be.mvpee;
+package be.mvpee.scoreboard;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

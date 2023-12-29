@@ -1,4 +1,4 @@
-package be.mvpee.ToolsMenu;
+package be.mvpee.menu.tools;
 
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;

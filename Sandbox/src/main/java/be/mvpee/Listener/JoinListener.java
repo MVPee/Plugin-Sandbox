@@ -8,7 +8,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.FireworkMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
@@ -55,10 +54,10 @@ public class JoinListener implements Listener {
 
         e.getPlayer().setPlayerListHeaderFooter(
                 ChatColor.WHITE.toString() + ChatColor.BOLD + "  Welcome on " + ChatColor.GOLD + ChatColor.BOLD + "play.mvpee.be" + ChatColor.WHITE + ChatColor.BOLD + "!  ",
-                ChatColor.GREEN + "Ping " + e.getPlayer().getPing()
+                ChatColor.YELLOW + "https://github.com/MVPee"
         );
 
-        //e.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 2, true, false, true));
-        e.getPlayer().removePotionEffect(PotionEffectType.SPEED);
+        e.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 0, 1, true, false, true));
+        //e.getPlayer().removePotionEffect(PotionEffectType.SPEED);
     }
 }

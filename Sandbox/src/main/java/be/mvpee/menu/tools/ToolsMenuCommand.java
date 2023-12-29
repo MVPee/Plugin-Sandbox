@@ -1,4 +1,4 @@
-package be.mvpee.ToolsMenu;
+package be.mvpee.menu.tools;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;

@@ -8,8 +8,15 @@ website: www.mvpee.be
 commands:
   contact:
     description: "How to contact me."
-  ?:
   help:
     description: "Display all commands."
+  plugins:
+    description: "Display the plugins (Github)."
   tools:
     description: "Tools menu for everyone."
+  ping:
+    description: "Display ping of the player."
+  status:
+    description: "Display all player and last connection."
+  perm:
+    description: "Change perms of a player"

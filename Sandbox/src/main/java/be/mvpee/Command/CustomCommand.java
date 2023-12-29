@@ -1,9 +1,10 @@
 package be.mvpee.Command;
 
 public enum CustomCommand {
-    HELP("Help Menu", "Usage: /help", "This beautiful menu."),
+    HELP("Help Command", "Usage: /help", "This beautiful command."),
     TOOLS("Tools Menu", "Usage: /tools", "Tools menu for everyone."),
-    CONTACT("Contact Menu", "Usage: /contact", "link for contact me.");
+    CONTACT("Contact Command", "Usage: /contact", "link for contact me."),
+    PING("Ping Command", "Usage: /ping", "Display ping of the player.");
 
     private final String title;
     private final String usage;

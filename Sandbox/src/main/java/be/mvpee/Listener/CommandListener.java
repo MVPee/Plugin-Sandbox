@@ -15,7 +15,7 @@ public class CommandListener implements Listener {
     private final List<String> blockedCommands = Arrays.asList(
             "/about", "/bukkit", "/bukkit:?", "/bukkit:about", "/bukkit:help", "/bukkit:pl", "/bukkit:plugins", "/bukkit:ver", "/bukkit.version", "/icanhasbukkit",
             "/list", "/me", "/minecraft:help", "/minecraft:list", "/minecraft:me", "/minecraft:msg", "/minecraft:random", "/minecraft:teammsg", "/minecraft:tell",
-            "/minecraft:tm", "/minecraft:trigger", "/minecraft:w", "/msg", "/pl", "/plugins", "/random", "/teammsg", "/tell", "/tm", "/trigger", "/ver", "/version", "w"
+            "/minecraft:tm", "/minecraft:trigger", "/minecraft:w", "/msg", "/pl", "/random", "/teammsg", "/tell", "/tm", "/trigger", "/ver", "/version", "w"
     );
 
     @EventHandler
@@ -26,7 +26,7 @@ public class CommandListener implements Listener {
                 String[] command = event.getMessage().split(" ");
                 if (command.length > 0 && blockedCommands.contains(command[0].toLowerCase())) {
                     event.setCancelled(true);
-                    player.sendMessage(ChatColor.RED + "This command doesn't exist anymore.");
+                    player.sendMessage(ChatColor.RED + "You don't have the permissions for this command.");
                 }
             }
         }
