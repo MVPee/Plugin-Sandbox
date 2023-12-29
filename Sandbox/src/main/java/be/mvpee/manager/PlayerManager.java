@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -69,16 +68,6 @@ public class PlayerManager implements Listener {
         }
     }
 
-    public int getPermissions(String pseudo) {
-        for (String key : playersConfig.getConfigurationSection("players").getKeys(false)) {
-            String playerName = playersConfig.getString("players." + key + ".pseudo");
-            if (playerName != null && playerName.equalsIgnoreCase(pseudo)) {
-                return playersConfig.getInt("players." + key + ".permissions.code", 0);
-            }
-        }
-        return -1;
-    }
-
     public String getNameWithCode(int code) {
         switch (code) {
             case 0:
@@ -93,22 +82,6 @@ public class PlayerManager implements Listener {
                 return "Owner";
         }
         return "undefind";
-    }
-
-    public void setPermissions(String pseudo, int newPermissionCode) {
-        for (String key : playersConfig.getConfigurationSection("players").getKeys(false)) {
-            String playerName = playersConfig.getString("players." + key + ".pseudo");
-            if (playerName != null && playerName.equalsIgnoreCase(pseudo)) {
-                playersConfig.set("players." + key + ".permissions.name", getNameWithCode(newPermissionCode));
-                playersConfig.set("players." + key + ".permissions.code", newPermissionCode);
-                try {
-                    playersConfig.save(playersFile);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                return;
-            }
-        }
     }
 
 }

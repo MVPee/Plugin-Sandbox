@@ -3,6 +3,8 @@ package be.mvpee;
 import be.mvpee.Command.*;
 import be.mvpee.Command.admin.*;
 import be.mvpee.Listener.*;
+import be.mvpee.manager.MoneyManager;
+import be.mvpee.manager.PermissionsManager;
 import be.mvpee.manager.PlayerManager;
 import be.mvpee.menu.tools.ToolsMenuCommand;
 import be.mvpee.menu.tools.ToolsMenuListener;
@@ -16,6 +18,12 @@ public class Main extends JavaPlugin implements Listener {
     @Override
     public void onEnable() {
         System.out.println("[Sandbox] ON");
+
+        //Manager
+        PlayerManager playerManager = new PlayerManager(this);
+        PermissionsManager permissionsManager = new PermissionsManager(this, playerManager);
+        MoneyManager moneyManager = new MoneyManager(this, playerManager);
+        Bukkit.getPluginManager().registerEvents(playerManager, this);
 
         //Listener
         Bukkit.getPluginManager().registerEvents(new JoinListener(), this);
@@ -35,12 +43,12 @@ public class Main extends JavaPlugin implements Listener {
         getCommand("plugins").setExecutor(new PluginsCommand());
         getCommand("help").setExecutor(new HelpCommand());
         getCommand("ping").setExecutor(new PingCommand());
+        getCommand("money").setExecutor(new MoneyCommand(moneyManager));
         // admin
-        getCommand("status").setExecutor(new StatusCommand(this));
-        getCommand("perm").setExecutor(new PermCommand(this));
+        getCommand("status").setExecutor(new StatusCommand(this, permissionsManager));
+        getCommand("perm").setExecutor(new PermCommand(permissionsManager));
+        getCommand("moneygive").setExecutor(new MoneyGiveCommand(moneyManager, permissionsManager));
 
-        //Manager
-        Bukkit.getPluginManager().registerEvents(new PlayerManager(this), this);
 
         //Tools Menu
         getCommand("tools").setExecutor(new ToolsMenuCommand());

@@ -6,6 +6,8 @@ load: STARTUP
 authors: [mvpee]
 website: www.mvpee.be
 commands:
+
+  #MEMBER
   contact:
     description: "How to contact me."
   help:
@@ -16,7 +18,15 @@ commands:
     description: "Tools menu for everyone."
   ping:
     description: "Display ping of the player."
+  money:
+    description: "Display your balance."
+
+  #STAFF
+  # Admin
   status:
-    description: "Display all player and last connection."
+    description: "Display all player and information"
+  moneygive:
+    description: "Give money to a player"
+  # Owner
   perm:
     description: "Change perms of a player"
