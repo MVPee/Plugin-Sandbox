@@ -6,9 +6,9 @@ import be.mvpee.Listener.*;
 import be.mvpee.manager.MoneyManager;
 import be.mvpee.manager.PermissionsManager;
 import be.mvpee.manager.PlayerManager;
+import be.mvpee.manager.ScoreboardManager;
 import be.mvpee.menu.tools.ToolsMenuCommand;
 import be.mvpee.menu.tools.ToolsMenuListener;
-import be.mvpee.scoreboard.ScoreBoard;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -23,7 +23,10 @@ public class Main extends JavaPlugin implements Listener {
         PlayerManager playerManager = new PlayerManager(this);
         PermissionsManager permissionsManager = new PermissionsManager(this, playerManager);
         MoneyManager moneyManager = new MoneyManager(this, playerManager);
+        ScoreboardManager scoreboardManager = new ScoreboardManager(this, playerManager, moneyManager, permissionsManager);
         Bukkit.getPluginManager().registerEvents(playerManager, this);
+        Bukkit.getPluginManager().registerEvents(scoreboardManager, this);
+
 
         //Listener
         Bukkit.getPluginManager().registerEvents(new JoinListener(), this);
@@ -33,10 +36,8 @@ public class Main extends JavaPlugin implements Listener {
         Bukkit.getPluginManager().registerEvents(new WeatherListener(), this);
         Bukkit.getPluginManager().registerEvents(new PingListener(), this);
         Bukkit.getPluginManager().registerEvents(new BlockListener(), this);
-        Bukkit.getPluginManager().registerEvents(new ChatListener(), this);
+        Bukkit.getPluginManager().registerEvents(new ChatListener(playerManager, permissionsManager), this);
         Bukkit.getPluginManager().registerEvents(new CommandListener(), this);
-        // scoreboard
-        Bukkit.getPluginManager().registerEvents(new ScoreBoard(), this);
 
         //Command
         getCommand("contact").setExecutor(new ContactCommand());

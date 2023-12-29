@@ -9,11 +9,11 @@ be\mvpee\Listener\CommandListener.class
 be\mvpee\Command\ContactCommand.class
 be\mvpee\Main.class
 be\mvpee\Listener\ChatListener.class
+be\mvpee\manager\ScoreboardManager.class
 be\mvpee\menu\tools\ToolsMenuListener.class
 be\mvpee\menu\tools\ToolsMenuCommand.class
 be\mvpee\Command\PluginsCommand.class
 be\mvpee\Listener\DamageListener.class
-be\mvpee\scoreboard\ScoreBoard.class
 be\mvpee\Listener\BlockListener.class
 be\mvpee\Listener\JoinListener.class
 be\mvpee\Listener\DeathListener.class

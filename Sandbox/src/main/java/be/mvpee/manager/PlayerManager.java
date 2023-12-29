@@ -12,6 +12,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.ChatColor;
 
 public class PlayerManager implements Listener {
 
@@ -82,6 +83,22 @@ public class PlayerManager implements Listener {
                 return "Owner";
         }
         return "undefind";
+    }
+
+    public ChatColor getColorWithCode(int code) {
+        switch (code) {
+            case 0:
+                return ChatColor.WHITE;
+            case 1:
+                return ChatColor.LIGHT_PURPLE;
+            case 2:
+                return ChatColor.GOLD;
+            case 3:
+                return ChatColor.RED;
+            case 4:
+                return ChatColor.DARK_RED;
+        }
+        return ChatColor.RED;
     }
 
 }
