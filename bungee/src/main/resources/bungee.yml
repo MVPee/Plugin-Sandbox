@@ -1,0 +1,6 @@
+name: bungee_MVP
+version: '${project.version}'
+main: be.mvpee.bungee
+author: MVPee
+commands:
+  hub:
