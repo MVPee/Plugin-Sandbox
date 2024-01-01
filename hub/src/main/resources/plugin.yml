@@ -1,7 +1,7 @@
-name: Essential
+name: Hub
 version: '${project.version}'
 main: be.mvpee.Main
 api-version: '1.20'
 load: STARTUP
 authors: [MVPee]
-commands:
+description: Plugin for hub for sandbox server
