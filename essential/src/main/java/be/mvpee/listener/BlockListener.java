@@ -18,7 +18,7 @@ public class BlockListener implements Listener {
     @EventHandler
     public void onBreak(BlockBreakEvent e) {
         Player player = e.getPlayer();
-        if (perm.hasPerm(player, 3))
+        if (perm.hasPerm(player, 3, true))
             return ;
         e.setCancelled(true);
     }
@@ -26,7 +26,7 @@ public class BlockListener implements Listener {
     @EventHandler
     public void onPlace(BlockPlaceEvent e) {
         Player player = e.getPlayer();
-        if (perm.hasPerm(player, 3))
+        if (perm.hasPerm(player, 3, true))
             return ;
         e.setCancelled(true);
     }

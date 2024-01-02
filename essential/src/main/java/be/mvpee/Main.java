@@ -1,5 +1,6 @@
 package be.mvpee;
 
+import be.mvpee.command.*;
 import be.mvpee.listener.*;
 import be.mvpee.manager.DbManager;
 import be.mvpee.manager.PermissionsManager;
@@ -12,8 +13,6 @@ public final class Main extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        System.out.println("ESSENTIAL ONN");
-
         DbManager db = new DbManager("mongodb://localhost:27017", "sandbox", "players");
         PermissionsManager perm = new PermissionsManager(db);
 
@@ -22,6 +21,12 @@ public final class Main extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new JoinListener(), this);
         Bukkit.getPluginManager().registerEvents(new WeatherListener(), this);
         Bukkit.getPluginManager().registerEvents(new FoodListener(), this);
+        Bukkit.getPluginManager().registerEvents(new DamageListener(perm), this);
+
+        getCommand("kick").setExecutor(new KickCommand(perm));
+        getCommand("ban").setExecutor(new BanCommand(perm));
+        getCommand("perm").setExecutor(new PermCommand(perm));
+        getCommand("perm").setTabCompleter(new PermTab());
     }
 
     @Override

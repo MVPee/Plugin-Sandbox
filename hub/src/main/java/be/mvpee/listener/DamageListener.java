@@ -12,6 +12,7 @@ public class DamageListener implements Listener {
     public void onDamage(EntityDamageEvent e) {
         if (e.getEntity() instanceof Player) {
             if (e.getCause() == EntityDamageEvent.DamageCause.VOID) {
+                e.setCancelled(true);
                 e.getEntity().teleport(new Location(e.getEntity().getWorld(), 0.5, 100, 0.5, 270, 0));
             }
             if (e.getCause() == EntityDamageEvent.DamageCause.FALL) {

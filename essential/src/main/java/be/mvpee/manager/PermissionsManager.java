@@ -34,7 +34,7 @@ public class PermissionsManager {
         switch(rank) {
             case "Guest":
                 return 0;
-            case "Assistant":
+            case "Helper":
                 return 1;
             case "Moderator":
                 return 2;
@@ -42,8 +42,9 @@ public class PermissionsManager {
                 return 3;
             case "Owner":
                 return 4;
+            default:
+                return -1;
         }
-        return 0;
     }
 
     public ChatColor getPermsColor(Player player) {
@@ -67,11 +68,22 @@ public class PermissionsManager {
         player.sendMessage(ChatColor.RED + "You don't have the permission.");
     }
 
-    public boolean hasPerm(Player player, int level) {
-        if (getPermsLevel(getPerms(player.getUniqueId())) >= level)
+    public boolean hasPerm(Player player, int level, boolean silent) {
+        if (getPermsLevel(getPerms(player.getUniqueId())) >= level || player.isOp())
             return true;
-        sendNoPermission(player);
+        if (!silent)
+            sendNoPermission(player);
         return false;
+    }
+
+    public boolean setPerm(UUID playerUUID, String rank) {
+         int code = getPermsLevel(rank);
+         if (code == -1)
+             return false;
+         Document filter = new Document("uuid", playerUUID.toString());
+         Document update = new Document("$set", new Document("rank", rank));
+         db.getPlayers().updateOne(filter, update);
+         return true;
     }
 
 }

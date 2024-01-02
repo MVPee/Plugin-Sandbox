@@ -1,12 +1,18 @@
 package be.mvpee.listener;
 
 import org.bukkit.*;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Firework;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.inventory.ItemFlag;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.FireworkMeta;
+import org.bukkit.inventory.meta.ItemMeta;
+
+import java.util.Arrays;
 
 public class JoinListener implements Listener {
 
@@ -30,6 +36,12 @@ public class JoinListener implements Listener {
         if (!player.hasPlayedBefore()) {
             firstJoin(player);
         }
+        player.getInventory().clear();
+
+        player.setExp(1);
+
+        player.getInventory().setItem(4, Item.TELEPORT.getItems());
+        player.getInventory().setItem(8, Item.LINK.getItems());
     }
 
 }
