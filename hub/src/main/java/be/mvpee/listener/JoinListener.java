@@ -38,6 +38,7 @@ public class JoinListener implements Listener {
         }
         player.getInventory().clear();
 
+        player.setLevel(666);
         player.setExp(1);
 
         player.getInventory().setItem(4, Item.TELEPORT.getItems());

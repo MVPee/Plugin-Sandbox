@@ -10,7 +10,8 @@ public class InventoryListener implements Listener {
     @EventHandler
     public void onInventoryClick(InventoryClickEvent event) {
         Player player = (Player) event.getWhoClicked();
-
+        if (player.isOp())
+            return ;
         if (event.getClickedInventory() != null && event.getClickedInventory().equals(player.getInventory())) {
             event.setCancelled(true);
             player.updateInventory();

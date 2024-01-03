@@ -1,10 +1,13 @@
 package be.mvpee.listener;
 
 import org.bukkit.Material;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerInteractAtEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.ChatColor;
@@ -53,4 +56,10 @@ public class InteractListener implements Listener {
         }
     }
 
+    @EventHandler
+    public void onPlayerInteractAtEntity(PlayerInteractAtEntityEvent e) {
+        if (e.getHand() == EquipmentSlot.HAND && e.getRightClicked().getType().equals(EntityType.IRON_GOLEM)) {
+            sendPlayerToServer(e.getPlayer(), "jump");
+        }
+    }
 }

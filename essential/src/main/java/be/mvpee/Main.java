@@ -22,11 +22,16 @@ public final class Main extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new WeatherListener(), this);
         Bukkit.getPluginManager().registerEvents(new FoodListener(), this);
         Bukkit.getPluginManager().registerEvents(new DamageListener(perm), this);
+        Bukkit.getPluginManager().registerEvents(new PlayerInteractListener(perm), this);
 
         getCommand("kick").setExecutor(new KickCommand(perm));
         getCommand("ban").setExecutor(new BanCommand(perm));
+
         getCommand("perm").setExecutor(new PermCommand(perm));
         getCommand("perm").setTabCompleter(new PermTab());
+
+        getCommand("pnj").setExecutor(new PnjCommand(perm));
+        getCommand("pnj").setTabCompleter(new PnjTab());
     }
 
     @Override
